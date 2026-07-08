@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thongsavanh · Sub 3:30 · Bangsaen42</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+Lao:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5efe4; --paper-2:#ece3d3; --ink:#1f2a26; --ink-soft:#4a5751;
+  --line:#d6cbb6; --forest:#1d6b52; --forest-d:#134a38; --rust:#c15a2b;
+  --gold:#c99a2e; --sky:#3b7ca8; --card:#fffdf8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans Lao","IBM Plex Mono",sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+/* hero */
+header{background:linear-gradient(135deg,var(--forest-d),var(--forest));color:#f5efe4;
+  padding:48px 0 40px;position:relative;overflow:hidden;border-bottom:5px solid var(--gold)}
+header::after{content:"42.195";position:absolute;right:-10px;bottom:-30px;
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:140px;
+  color:rgba(255,255,255,.06);letter-spacing:-4px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.hero-name{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(38px,8vw,64px);
+  line-height:.95;letter-spacing:.5px;text-transform:uppercase}
+.hero-sub{font-size:15px;color:rgba(245,239,228,.85);margin-top:8px;max-width:560px}
+.hero-stats{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;position:relative;z-index:1}
+.hstat{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;padding:14px 20px;backdrop-filter:blur(4px)}
+.hstat .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1.5px;
+  text-transform:uppercase;color:rgba(245,239,228,.6)}
+.hstat .v{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:32px;line-height:1;margin-top:4px}
+.hstat .u{font-size:11px;color:var(--gold);margin-top:2px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:40;background:var(--paper-2);
+  border-bottom:1px solid var(--line);padding:10px 0}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.5px;
+  color:var(--ink-soft);text-decoration:none;padding:7px 13px;border-radius:20px;white-space:nowrap;transition:.15s}
+nav a:hover{background:var(--forest);color:#f5efe4}
+
+section{padding:44px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sec-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--rust);font-weight:500}
+.sec-title{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:30px;
+  text-transform:uppercase;letter-spacing:.5px;color:var(--forest-d)}
+.sec-desc{color:var(--ink-soft);font-size:14.5px;margin-bottom:24px;max-width:680px}
+
+/* zones */
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.zone{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+  border-top:4px solid var(--z)}
+.zone .zt{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:var(--forest-d)}
+.zone .zn{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.zone .zp{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px;color:var(--rust)}
+.zone .zd{font-size:12px;color:var(--ink-soft);margin-top:6px;line-height:1.45}
+
+/* schedule */
+.weeks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;
+  cursor:pointer;transition:.15s;border-left:4px solid var(--ph)}
+.wk:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(31,42,38,.1)}
+.wk .wn{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:22px;color:var(--forest-d)}
+.wk .wp{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--rust)}
+.wk .wl{font-size:12px;color:var(--ink-soft);margin-top:6px}
+.wk .wkm{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--sky);margin-top:8px;font-weight:500}
+
+.modal{position:fixed;inset:0;background:rgba(31,42,38,.55);display:none;
+  align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal.on{display:flex}
+.mbox{background:var(--paper);border-radius:18px;max-width:520px;width:100%;
+  max-height:85vh;overflow-y:auto;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mhead{background:var(--forest-d);color:#f5efe4;padding:22px 24px;border-radius:18px 18px 0 0;position:sticky;top:0}
+.mhead .mn{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px}
+.mhead .mp{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--gold);letter-spacing:1px;text-transform:uppercase}
+.mbody{padding:16px 24px 26px}
+.day{padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:14px}
+.day:last-child{border:none}
+.day .dn{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;color:var(--rust);
+  min-width:40px;padding-top:2px;text-transform:uppercase}
+.day .dc{font-size:14px;color:var(--ink);white-space:pre-line;line-height:1.55}
+.mclose{background:var(--rust);color:#fff;border:none;padding:12px;width:100%;
+  font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:16px;letter-spacing:1px;
+  text-transform:uppercase;border-radius:0 0 18px 18px;cursor:pointer}
+
+/* generic cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:19px;color:var(--forest-d);
+  text-transform:uppercase;margin-bottom:8px;letter-spacing:.5px}
+.card p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.card ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:7px}
+.card li{font-size:13px;color:var(--ink-soft);padding-left:16px;position:relative;line-height:1.5}
+.card li::before{content:"›";position:absolute;left:0;color:var(--rust);font-weight:700}
+
+.pill-tabs{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.ptab{flex:1;min-width:130px;background:var(--card);border:1.5px solid var(--line);border-radius:12px;
+  padding:14px;cursor:pointer;text-align:center;transition:.15s;
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;color:var(--ink-soft)}
+.ptab span{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;
+  text-transform:uppercase;font-weight:400;margin-top:3px}
+.ptab.active{border-color:var(--rust);color:var(--rust);background:#fbeee6}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ptable th{background:var(--forest-d);color:#f5efe4;font-family:"IBM Plex Mono",monospace;
+  font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:11px 14px;text-align:left}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--line)}
+.ptable tr:last-child td{border:none}
+.ptable .mono{font-family:"IBM Plex Mono",monospace}
+.callout{background:#fbeee6;border:1px solid var(--rust);border-radius:12px;padding:18px 20px;margin-top:20px}
+.callout .ct{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:17px;
+  color:var(--rust);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.callout ol{margin-left:18px;font-size:13.5px;color:var(--ink-soft);line-height:1.7}
+.callout.green{background:#e8f2ec;border-color:var(--forest)}
+.callout.green .ct{color:var(--forest-d)}
+
+footer{padding:36px 0;text-align:center;color:var(--ink-soft);font-size:13px}
+footer b{color:var(--forest-d)}
+
+@media(max-width:600px){
+  .sec-title{font-size:24px}
+  .day{flex-direction:column;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Marathon Training Plan · Bangsaen42</div>
+    <h1 class="hero-name">Thongsavanh<br>Kongvongsa</h1>
+    <p class="hero-sub">แผนซ้อม 19 สัปดาห์สู่เป้าหมาย Sub 3:30 — สร้างจาก Half Marathon PR 1:34:40 ที่บ่งบอกว่าเป้าหมายนี้อยู่ในเอื้อม.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="k">Goal</div><div class="v">3:30</div><div class="u">Bangsaen42</div></div>
+      <div class="hstat"><div class="k">Goal Pace</div><div class="v">4:58</div><div class="u">min/km</div></div>
+      <div class="hstat"><div class="k">Half PR</div><div class="v">1:34:40</div><div class="u">→ full ~3:19</div></div>
+      <div class="hstat"><div class="k">Age Group</div><div class="v">M45-49</div><div class="u">masters</div></div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+  <a href="#plan">📋 แผน</a>
+  <a href="#zones">⏱️ โซน/เพซ</a>
+  <a href="#schedule">📅 ตาราง 19 สัปดาห์</a>
+  <a href="#howto">📖 วิธีแล่น</a>
+  <a href="#pacing">🎯 Race Pace</a>
+  <a href="#tips">💡 เคล็ดลับ</a>
+</div></nav>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">ภาพรวมแผน</h2></div>
+    <p class="sec-desc">แผน 19 สัปดาห์ แบ่งเป็น 4 เฟส ยึดหลัก 3:1 (หนัก 3 สัปดาห์ · ลด 1 สัปดาห์) เหมาะกับนักวิ่งวัย masters ที่ต้องการการฟื้นตัวมากขึ้น. โครงสัปดาห์: จันทร์พัก · อังคาร speed · พุธ easy · พฤหัส tempo/MP · ศุกร์ strength · เสาร์ easy+strides · อาทิตย์ long run.</p>
+    <div class="cards">
+      <div class="card"><h3>เฟส 1 · Base (W1-6)</h3><p>สร้างฐาน endurance · long run 16→22km · speed เบา · ปรับตัวเข้าสู่การซ้อม</p></div>
+      <div class="card"><h3>เฟส 2 · Build (W7-11)</h3><p>เพิ่ม volume + เริ่ม MP run · long run ถึง 28km · tempo ยาวขึ้น</p></div>
+      <div class="card"><h3>เฟส 3 · Peak (W12-16)</h3><p>long run ไกลสุด 30-32km · MP practice เข้มข้น · ซ้อม fueling</p></div>
+      <div class="card"><h3>เฟส 4 · Taper (W17-19)</h3><p>ลด volume 40% ให้ร่างกายสด · รักษาความคุ้น pace · พร้อมแข่ง</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="zones">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">โซน & เพซ</h2></div>
+    <p class="sec-desc">เพซคำนวณจากเป้า Sub 3:30 (MP 4:58). งานเบาดู HR · งานเร็วดู pace · long run คุม Zone 2 เป็นหลัก.</p>
+    <div class="zones" id="zonesGrid"></div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">ตาราง 19 สัปดาห์</h2></div>
+    <p class="sec-desc">กดแต่ละสัปดาห์เพื่อดู 6 วัน (จันทร์พัก). Long run ไต่: 16→18→20→<b>14</b>→22→24→26→<b>16</b>→28→30→32→<b>20</b>→30→32→28→<b>18</b>→race prep. ตัวเลขหนา = สัปดาห์ deload.</p>
+    <div class="weeks" id="weeksGrid"></div>
+  </div>
+</section>
+
+<section id="howto">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">วิธีแล่นแต่ละวัน</h2></div>
+    <p class="sec-desc">ทุก session: warm-up jog 10-15 นาที + strides → เนื้อหลัก → cool-down jog 5-10 นาที + ยืด.</p>
+    <div class="cards" id="howtoGrid"></div>
+  </div>
+</section>
+
+<section id="pacing">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Race Pacing</h2></div>
+    <p class="sec-desc">ตารางเพซวันแข่ง Bangsaen42. กดเลือกเป้าตามสภาพร่างกาย/อากาศ.</p>
+    <div class="pill-tabs" id="goalTabs">
+      <div class="ptab" data-t="3:35:00">A · 3:35<span>ปลอดภัย/ร้อน</span></div>
+      <div class="ptab active" data-t="3:30:00">B · 3:30<span>เป้าหลัก</span></div>
+      <div class="ptab" data-t="3:25:00">C · 3:25<span>วันฟอร์มดี</span></div>
+    </div>
+    <table class="ptable"><thead><tr><th>ระยะ</th><th>เวลาสะสม</th><th>เพซ/km</th><th>หมายเหตุ</th></tr></thead>
+      <tbody id="paceBody"></tbody></table>
+    <div class="callout green">
+      <div class="ct">🏁 กลยุทธ์วันแข่ง</div>
+      <ol>
+        <li>km 1-10: คุมช้ากว่าเป้า 3-5 วิ/km อย่าออกตัวเร็ว</li>
+        <li>km 11-30: ล็อกเพซเป้าให้นิ่ง · ดื่มน้ำทุกจุด</li>
+        <li>km 31-42: ถ้าแรงเหลือค่อยเร่ง · Gel ทุก 35-40 นาที</li>
+        <li>อากาศ Bangsaen ร้อน → ถ้า HR พุ่ง ถอยไปเป้า A (เชื่อ HR)</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="tips">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">เคล็ดลับ + Masters</h2></div>
+    <div class="cards">
+      <div class="card"><h3>🎯 80/20</h3><p>~80% ของ mileage แล่นเบา (Zone 2) · ~20% หนัก. กับดัก = แล่นหนักปานกลางทุกวัน — เหนื่อยแต่ไม่พัฒนา.</p></div>
+      <div class="card"><h3>🛌 Masters Recovery</h3><p>วัย 45-49 ฟื้นตัวช้ากว่าหนุ่ม — นอนให้พอ, deload สำคัญ, วันพักคือวันพักจริงๆ. ฟังร่างกายมากกว่าตาราง.</p></div>
+      <div class="card"><h3>🍚 Fueling</h3><p>Long run 90 นาที+ เริ่มเติม Gel ทุก 35-40 นาที. ฝึก fueling ในซ้อม ไม่ใช่แค่วันแข่ง. Carb-load 2-3 วันก่อนแข่ง.</p></div>
+      <div class="card"><h3>💪 Strength</h3><p>วันศุกร์: squat, RDL (พับสะโพก), glute bridge, core, calf raise. สร้าง posterior chain รักษาฟอร์มตอนล้า km 30+.</p></div>
+      <div class="card"><h3>👟 รองเท้า</h3><p>หมุนเวียนหลายคู่ลดบาดเจ็บ. Easy=คู่ซัพพอร์ตนุ่ม · Long=คู่ทน · Tempo/MP=คู่เบา. วันแข่งใช้คู่ที่ซ้อมมาแล้ว.</p></div>
+      <div class="card"><h3>⏱️ HR vs Pace</h3><p>Easy/Long → ดู HR (กันเผลอเร็ว) · Tempo/MP → ดู pace · Interval → ดู pace. วันร้อน/ล้า เชื่อ HR มากกว่า.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="modal"><div class="mbox">
+  <div class="mhead"><div class="mn" id="mTitle"></div><div class="mp" id="mPhase"></div></div>
+  <div class="mbody" id="mBody"></div>
+  <button class="mclose" onclick="closeModal()">ปิด</button>
+</div></div>
+
+<footer><div class="wrap">
+  แผนซ้อม <b>Sub 3:30</b> สำหรับ Thongsavanh Kongvongsa · Bangsaen42 · สร้างโดยโค้ช 🏃<br>
+  <span style="font-size:11px;color:var(--sky)">ปรับตามสภาพร่างกายจริงเสมอ · เจ็บให้พัก · ฟังร่างกายมากกว่าตัวเลข</span>
+</div></footer>
+
+<script>
+// ---- Zones ----
+const zones=[
+ {t:"Interval",n:"VO2 / speed",p:"4:10-4:20",d:"งานเร็วสั้น มีพัก · ดู pace",z:"#c15a2b"},
+ {t:"Tempo",n:"Threshold",p:"4:30-4:40",d:"หนักคุมได้ · พูดสั้นๆ",z:"#c99a2e"},
+ {t:"Marathon",n:"MP · Goal",p:"4:55-5:00",d:"เพซเป้าแข่ง · ฝึกให้ชิน",z:"#1d6b52"},
+ {t:"Long",n:"Endurance",p:"5:40-6:00",d:"Zone 2 · คุยได้",z:"#3b7ca8"},
+ {t:"Easy",n:"Recovery",p:"5:50-6:15",d:"เบาสบาย · ฟื้นตัว",z:"#7a8a80"},
+];
+const zg=document.getElementById("zonesGrid");
+zones.forEach(z=>{const e=document.createElement("div");e.className="zone";e.style.setProperty("--z",z.z);
+  e.innerHTML=`<div class="zt">${z.t}</div><div class="zn">${z.n}</div><div class="zp">${z.p}</div><div class="zd">${z.d}</div>`;
+  zg.appendChild(e);});
+
+// ---- How to run ----
+const howto=[
+ {h:"Easy / Recovery",p:"แล่นต่อเนื่องยาวคงที่ Zone 2 คุยได้สบาย. เป้าคือฟื้นตัว+สร้างฐาน—ห้ามเร็ว."},
+ {h:"Long Run",p:"ต่อเนื่องยาว Zone 2 ช้าๆ. ถ้าเขียน last Xkm MP = เร่งเป็น MP ช่วงท้าย. Gel ทุก 35-40 นาที."},
+ {h:"Tempo",p:"WU → แล่น tempo pace (4:30-4:40) ต่อเนื่อง หรือซอย 3×3km พัก 90s → CD. ฝึก threshold."},
+ {h:"MP Run",p:"แล่น continuous ที่ MP (4:55-5:00) ตามระยะ. ฝึกร่างกาย+ใจให้ชินเพซแข่ง."},
+ {h:"Interval",p:"ซอยเป็นท่อน เช่น 6×1km @4:15 พัก jog 200m. ฝึกความเร็ว/VO2max."},
+ {h:"Strength",p:"squat, RDL, glute bridge, core, calf raise. สร้าง posterior chain รักษาฟอร์มตอนล้า."},
+];
+const hg=document.getElementById("howtoGrid");
+howto.forEach(x=>{const e=document.createElement("div");e.className="card";
+  e.innerHTML=`<h3>${x.h}</h3><p>${x.p}</p>`;hg.appendChild(e);});
+
+// ---- Schedule 19 weeks ----
+const PH={Base:"#3b7ca8",Build:"#1d6b52",Peak:"#c15a2b",Deload:"#c99a2e",Taper:"#7a8a80",RACE:"#c15a2b"};
+const easy="Easy 6-8km @5:50-6:10 Zone 2";
+const stG="Strength + Prehab (40min)\nSquat/RDL/Glute/Core/Calf";
+const satG="Easy 5km + strides 4×80m";
+function W(n,ph,foc,km,tue,thu,sun){return{n,ph,foc,km,days:[
+ ["Tue",tue],["Wed",easy],["Thu",thu],["Fri",stG],["Sat",satG],["Sun",sun]]};}
+const weeks=[
+ // Block 1: Base
+ W(1,"Base","สร้างฐาน",42,"Interval 5×800m @4:15\nrecovery jog 200m","Tempo 6km @4:35-4:40","Long 16km @5:50-6:05 Zone 2"),
+ W(2,"Base","เพิ่ม volume",46,"Fartlek 1min hard/1min easy ×8","Tempo 8km @4:32-4:40","Long 18km @5:45-6:00 Zone 2"),
+ W(3,"Base","ดันความอึด",50,"Hill Repeats 60s ×8 @RPE 8","Tempo 8km @4:30-4:38","Long 20km @5:40-5:55"),
+ W(4,"Deload","🔽 ฟื้นตัว 1",36,"Interval 400m ×6 @4:10","Easy 8km build-up","Long 14km @5:50-6:10 เบาๆ"),
+ 
+ // Block 2: Build
+ W(5,"Build","MP เริ่ม",50,"Interval 6×1km @4:15","MP Run 10km @4:55-5:00","Long 22km @5:40-5:55 Zone 2"),
+ W(6,"Build","tempo ยาว",54,"Hill Repeats 60s ×10 @RPE 8","Tempo 10km @4:30-4:38","Long 24km @5:38-5:52 Zone 2"),
+ W(7,"Build","ดัน MP",58,"Interval 5×1km @4:12","MP Run 12km @4:55-5:00","Long 26km @5:35-5:50\nlast 4km MP"),
+ W(8,"Deload","🔽 ฟื้นตัว 2",40,"Fartlek 1min ×10 เบา","Easy 8km build-up","Long 16km @5:45-6:00 Zone 2"),
+ 
+ // Block 3: Peak 1
+ W(9,"Peak","Peak เริ่ม",56,"Interval 6×1km @4:12","MP Run 14km @4:55-5:00 🎯","Long 28km @5:35-5:50\nlast 5km MP"),
+ W(10,"Peak","ดันระยะ Long",60,"Hill Repeats 60s ×12","Tempo 12km @4:30-4:38","Long 30km @5:32-5:48\nlast 8km MP"),
+ W(11,"Peak","Long ไกลสุด 1",62,"Interval 8×800m @4:10","MP Run 16km @4:55-5:00 🎯","Long 32km @5:30-5:45\nlast 10km MP"),
+ W(12,"Deload","🔽 ฟื้นตัว 3",44,"Interval 400m ×8 @4:10","Easy 10km build-up","Long 20km @5:40-5:55 Zone 2"),
+ 
+ // Block 4: Peak 2
+ W(13,"Peak","Peak ต่อเนื่อง",62,"Interval 6×1km @4:10","Tempo 12km @4:30-4:38","Long 30km @5:32-5:48\nlast 8km MP"),
+ W(14,"Peak","Long ไกลสุด 2",64,"Hill Repeats 60s ×12","MP Run 16km @4:55-5:00 🎯","Long 32km @5:30-5:45\nlast 10km MP"),
+ W(15,"Peak","Peak ท้ายสุด",58,"Interval 5×1km @4:10","Tempo 10km @4:30-4:38","Long 28km @5:35-5:50\nlast 5km MP"),
+ W(16,"Deload","🔽 ฟื้นตัวก่อน Taper",42,"Fartlek 2min ×6 เบา","Easy 8km build-up","Long 18km @5:40-5:55 Zone 2"),
+ 
+ // Block 5: Taper & Race
+ W(17,"Taper","Taper เริ่ม",46,"Interval 5×1km @4:15\nสั้นลง","MP Run 12km @4:55-5:00","Long 22km @5:35-5:50 Zone 2"),
+ W(18,"Taper","ลด volume",34,"Fartlek 2min ×6 เบา","MP Run 8km @4:55-5:00","Long 14km @5:35-5:50 Zone 2"),
+ W(19,"RACE","🏆 RACE WEEK",18,"Easy 5km + strides","Easy 5km + strides","🏆 RACE DAY — Sub 3:30!\nPace 4:58 · Gel ทุก 35-40 นาที"),
+];
+const wg=document.getElementById("weeksGrid");
+weeks.forEach(w=>{const e=document.createElement("div");e.className="wk";
+  e.style.setProperty("--ph",PH[w.ph]||"#3b7ca8");
+  e.innerHTML=`<div class="wp">${w.ph}</div><div class="wn">W${w.n}</div><div class="wl">${w.foc}</div><div class="wkm">~${w.km} km/wk</div>`;
+  e.onclick=()=>openWeek(w);wg.appendChild(e);});
+function openWeek(w){
+  document.getElementById("mTitle").textContent="Week "+w.n+" · "+w.foc;
+  document.getElementById("mPhase").textContent=w.ph+" · ~"+w.km+" km";
+  document.getElementById("mBody").innerHTML=
+    `<div class="day"><div class="dn">Mon</div><div class="dc">พัก (Rest) · ทำ prehab ได้</div></div>`+
+    w.days.map(d=>`<div class="day"><div class="dn">${d[0]}</div><div class="dc">${d[1]}</div></div>`).join("");
+  document.getElementById("modal").classList.add("on");
+}
+function closeModal(){document.getElementById("modal").classList.remove("on");}
+document.getElementById("modal").onclick=e=>{if(e.target.id==="modal")closeModal();};
+
+// ---- Race pacing ----
+function parseHMS(s){const p=s.split(":").map(Number);return p[0]*3600+p[1]*60+p[2];}
+function fmtHMS(sec){sec=Math.round(sec);const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;
+  return h+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");}
+function fmtPace(sec){const m=Math.floor(sec/60),s=Math.round(sec%60);return m+":"+String(s).padStart(2,"0");}
+const MARK=[{km:5,n:""},{km:10,n:"คุมช่วงต้น"},{km:15,n:""},{km:21.1,n:"ครึ่งทาง"},
+ {km:25,n:""},{km:30,n:"ระวัง the wall"},{km:35,n:""},{km:40,n:"ช่วงตัดสิน"},{km:42.195,n:"🏁 FINISH"}];
+function renderPace(time){
+  const tot=parseHMS(time),pace=tot/42.195;
+  document.getElementById("paceBody").innerHTML=MARK.map(m=>{
+    const lbl=m.km===42.195?"42.2 km":m.km===21.1?"21.1 km":m.km+" km";
+    return `<tr><td class="mono">${lbl}</td><td class="mono">${fmtHMS(pace*m.km)}</td><td class="mono">${fmtPace(pace)}</td><td>${m.n}</td></tr>`;
+  }).join("");
+}
+document.querySelectorAll(".ptab").forEach(t=>{t.onclick=()=>{
+  document.querySelectorAll(".ptab").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active");renderPace(t.dataset.t);};});
+renderPace("3:30:00");
+</script>
+</body>
+</html>
